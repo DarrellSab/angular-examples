@@ -1,0 +1,51 @@
+
+
+<h1>Search page</h1>
+<div class="container">
+  <div class="card">
+    <div class="form-control">
+      <input type="text" [(ngModel)]="userName">
+      <input type="text" [(ngModel)]="userPassword">
+    </div>
+    <button class="btn" (click)="register()">Add</button>
+    <button class="btn" (click)="fetchUsers()">Download</button>
+  </div>
+
+  <hr>
+
+
+</div>
+
+<div>
+  <table>
+    <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>password</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users | paginate: {itemsPerPage: count, currentPage: page}">
+      <td>{{user.userId}}</td>
+      <td>{{user.name}}</td>
+      <td>{{user.password}}</td>
+      <td>
+        <button class="btn" (click)="removeUser(user.userId)">Delete</button>
+        <!--<a routerLink="/edit/{{user.userId}}" style="text-decoration: none">Update-->
+        <a [routerLink]="['/edit',user.userId]" style="text-decoration: none">Update
+
+        </a>
+
+        <!--<button class="btn" ><a [routerLink]="['/edit/{{user.userId}}']">Update</a></button>-->
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!--Including the pagination control.-->
+  <div class="text-right">
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+  </div>
+</div>

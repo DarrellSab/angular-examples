@@ -1,0 +1,15 @@
+<p>clothes works!</p>
+<ul>
+  <li *ngFor="let item of items">{{items}}</li>
+</ul>
+<p *ngIf="items.length > 2">We stock lots of clothes!</p>
+<img [src]="img">
+<br>
+<!--this is a wrong example -->
+<!--<img [(ngModel)] ="img">-->
+<input type="text" (input)="onInput($event)">
+<p><strong>{{inputValue}}</strong></p>
+
+<!--the two-way binding [()] but in NgModule should be imported FormsModule-->
+<input type="text" [(ngModel)]="inputValue2">
+<p>{{inputValue2}}</p>

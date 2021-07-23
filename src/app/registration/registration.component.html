@@ -1,0 +1,11 @@
+<p>registration works!</p>
+<div>
+  <h2>{{message}}</h2>
+</div>
+<form>
+  <input required type="text" [(ngModel)]="user.name" name="name">
+  <input type="text" [(ngModel)]="user.password" name="password" required>
+  <button type="submit" (click)="register()">Submit</button>
+
+</form>
+<button (click)="loadSearchPage()">Go to Search</button>
